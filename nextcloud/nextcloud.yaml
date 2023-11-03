@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Athens
+    volumes:
+      - /home/funmicra/Appdata/nextcloud/config:/config
+      - /home/funmicra/Appdata/nextcloud/data:/data
+      - /media/storage:/media/storage
+    ports:
+      - 1443:443
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: nextcloud_db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Athens
+      - MYSQL_ROOT_PASSWORD=Come-Purifier-Carried0
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=Come-Purifier-Carried0
+    volumes:
+      - /home/funmicra/Appdata/mariadb/config:/config
+      - /home/funmicra/Appdata/mariadb/data:/data
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: Apps-Network
+

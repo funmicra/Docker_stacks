@@ -1,0 +1,23 @@
+version: "2"
+services:
+    ytdl_material:
+        container_name: youtube-dl
+        environment: 
+            ytdl_mongodb_connection_string: 'mongodb://ytdl-mongo-db:27017'
+            ytdl_use_local_db: 'true'
+            write_ytdl_config: 'true'
+        restart: always
+        volumes:
+            - /home/funmicra/Appdata/Youtube/Config:/app/appdata
+            - /home/funmicra/Appdata/Youtube/Audio:/app/audio
+            - /home/funmicra/Appdata/Youtube/Video:/app/video
+            - /home/funmicra/Appdata/Youtube/Subscriptions:/app/subscriptions
+            - /home/funmicra/Appdata/Youtube/Users:/app/users
+        ports:
+            - "8998:17442"
+        image: tzahi12345/youtubedl-material:latest
+
+networks:
+  default:
+    external:
+      name: Apps-Network

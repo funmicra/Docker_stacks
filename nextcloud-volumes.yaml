@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Athens
+    volumes:
+      - nextcloud_config:/config
+      - nextcloud_data:/data
+      - /media/storage:/media/storage
+    ports:
+      - 1443:443
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: nextcloud_db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Athens
+      - MYSQL_ROOT_PASSWORD=Come-Purifier-Carried0
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=Come-Purifier-Carried0
+    volumes:
+      - nextcloud_db_config:/config
+      - nextcloud_db_data:/data
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+
+networks:
+  default:
+#    external:
+      name: nextcloud
+
+volumes:
+  nextcloud_config:
+    name: nextcloud_config
+#   external: true
+  nextcloud_data:
+    name: nextcloud_data
+#   external: true
+  nextcloud_db_config:
+    name: nextcloud_db_config
+#   external: true
+  nextcloud_db_data:
+    name: nextcloud_db_data
+#   external: true
+
+#if use external: true, create volumes with docker volume create "name_volume"
