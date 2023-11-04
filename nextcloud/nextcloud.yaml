@@ -12,6 +12,7 @@ services:
       - /home/funmicra/Appdata/nextcloud/config:/config
       - /home/funmicra/Appdata/nextcloud/data:/data
       - /media/storage:/media/storage
+      - /media/NFS-WD:/media/NFS-WD
     ports:
       - 1443:443
     depends_on:
