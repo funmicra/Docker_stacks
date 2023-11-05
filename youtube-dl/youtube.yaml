@@ -10,7 +10,7 @@ services:
         volumes:
             - /home/funmicra/Appdata/Youtube/Config:/app/appdata
             - /home/funmicra/Appdata/Youtube/Audio:/app/audio
-            - /home/funmicra/Appdata/Youtube/Video:/app/video
+            - /media/youtube-dl:/app/video
             - /home/funmicra/Appdata/Youtube/Subscriptions:/app/subscriptions
             - /home/funmicra/Appdata/Youtube/Users:/app/users
         ports:
