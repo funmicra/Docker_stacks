@@ -21,4 +21,3 @@
    docker-compose -f app_name.yaml up -d
 ```
 
-That's all
