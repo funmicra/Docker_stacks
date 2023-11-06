@@ -26,10 +26,10 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Athens
-      - MYSQL_ROOT_PASSWORD=Come-Purifier-Carried0
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
-      - MYSQL_PASSWORD=Come-Purifier-Carried0
+      - MYSQL_ROOT_PASSWORD="ROOT_ACCESS_PASSWORD"
+      - MYSQL_DATABASE="USER_DB_NAME"
+      - MYSQL_USER="MYSQL_USER"
+      - MYSQL_PASSWORD="DATABASE_PASSWORD"
     volumes:
       - /home/funmicra/Appdata/mariadb/config:/config
       - /home/funmicra/Appdata/mariadb/data:/data
