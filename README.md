@@ -11,3 +11,12 @@
        external:
          name: Apps-Network
 ```
+3) Create persistant directories
+```sh
+   mkdir /home/funmicra/Appdata/app_name/sub_dir
+```
+4) Change directory and run docker-compose
+```sh
+   cd ~/stacks/app_name
+   docker-compose -f app_name.yaml up -d
+```
