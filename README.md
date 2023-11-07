@@ -6,10 +6,10 @@
 ```   
 2) In every stack add in the end
 ```yaml
-   networks:
-     default:
-       external:
-         name: Apps-Network
+networks:
+  default:
+    external:
+      name: Apps-Network
 ```
 3) Create persistant directories
 ```sh
