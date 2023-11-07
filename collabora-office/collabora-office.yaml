@@ -1,0 +1,17 @@
+version: '3'
+services:
+  code:
+    image: collabora/code:latest
+    container_name: collabora-office
+    restart: always
+    environment:
+      - password=${COLLABORA_PASSWORD}
+      - username=${COLLABORA_USERNAME}
+      - domain=${COLLABORA_DOMAIN}
+      - extra_params=--o:ssl.enable=true
+    ports:
+      - 9980:9980
+networks:
+  default:
+    external:
+      name: Apps-Network
