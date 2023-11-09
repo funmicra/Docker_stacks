@@ -1,6 +1,15 @@
 version: "3"
+
 services:
   watchtower:
-    image: containrrr/watchtower
+    image: containrrr/watchtower  # Use the Watchtower Docker image
+    container_name: watchtower  # Set the name of the container to "watchtower"
+    restart: unless-stopped  # Restart the container unless stopped manually
+    
+    # Environment variables for Watchtower
+    environment:
+      - WATCHTOWER_POLL_INTERVAL: 3600  # Set the polling interval to 1 hour (3600 seconds)
+      - WATCHTOWER_REMOVE_VOLUMES: true  # Remove unused volumes after updating
+    
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket for container to access host's Docker daemon
