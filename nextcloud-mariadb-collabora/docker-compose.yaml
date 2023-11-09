@@ -1,4 +1,4 @@
-version: '3'
+version: '3'  # Docker Compose file version
 
 services:
   # Nextcloud service configuration
@@ -39,10 +39,23 @@ services:
       - 3306:3306             # Maps host port 3306 to container port 3306 for MySQL
     restart: unless-stopped   # Restart policy
 
+  # Collabora Online service configuration
+  code:
+    image: collabora/code:latest  # Docker image to use for the service
+    container_name: collabora-office  # Name of the container
+    restart: always  # Restart policy: always (restart container automatically)
+    environment:
+      - password=${COLLABORA_PASSWORD}  # Set environment variable for password
+      - username=${COLLABORA_USERNAME}  # Set environment variable for username
+      - domain=${COLLABORA_DOMAIN}      # Set environment variable for domain
+      - extra_params=--o:ssl.enable=true  # Additional parameters for collabora
+    ports:
+      - 9980:9980  # Map host port 9980 to container port 9980 for access
+
 networks:
   default:
     external:
-      name: Apps-Network   # External network configuration
+      name: Apps-Network  # External network configuration named Apps-Network
 
 volumes:
   nextcloud_config:
