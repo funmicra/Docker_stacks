@@ -9,7 +9,7 @@ services:
       - PGID=1000
       - TZ=Europe/Athens
     volumes:
-      - /home/funmicra/Appdata/heimdall/config:/config
+      - heimdall_config:/config
     ports:
       - 86:80
       - 8443:443
@@ -19,3 +19,8 @@ networks:
   default:
     external:
       name: Apps-Network
+
+volumes:
+  heimdall_config:
+    name: heimdall_config
+    external: true
