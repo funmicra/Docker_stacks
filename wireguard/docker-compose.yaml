@@ -1,0 +1,38 @@
+version: "2.1"  # Docker Compose version being used
+
+services:
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest  # Docker image for the WireGuard service
+    container_name: wireguard  # Name of the container
+    cap_add:
+      - NET_ADMIN  # Add NET_ADMIN capability
+      - SYS_MODULE  # Optional: Add SYS_MODULE capability
+    environment:
+      - PUID=1000  # User ID for file permissions
+      - PGID=1000  # Group ID for file permissions
+      - TZ=Europe/Athens  # Timezone
+      - SERVERURL=968a09db9e44.sn.mynetname.net # Optional: Server URL
+      - SERVERPORT=51820 # Optional: Server port
+      - PEERS=pixel # Optional: Peer configuration
+      - PEERDNS=auto # Optional: Peer DNS configuration
+      - INTERNAL_SUBNET=10.13.13.0 # Optional: Internal subnet
+      - ALLOWEDIPS=0.0.0.0/0 # Optional: Allowed IPs
+      - PERSISTENTKEEPALIVE_PEERS= # Optional: Persistent keepalive peers
+      - LOG_CONFS=true # Optional: Log configurations
+    volumes:
+      - wireguard_data:/config  # Mount external volume for WireGuard configuration
+      - /lib/modules:/lib/modules # Optional: Mount kernel modules
+    ports:
+      - 51820:51820/udp  # Expose and forward port 51820 using UDP
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1  # Set a specific kernel parameter
+    restart: unless-stopped  # Restart policy for the container
+
+volumes:
+  wireguard_data:
+    external: true  # Define an external volume named 'wireguard_data'
+
+networks:
+  default:
+    external:
+      name: Apps-Network  # External network named 'Apps-Network'
