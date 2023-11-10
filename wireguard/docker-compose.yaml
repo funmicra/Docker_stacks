@@ -1,29 +1,29 @@
-version: "2.1"  # Docker Compose version being used
+version: "2.1"
 
 services:
   wireguard:
-    image: lscr.io/linuxserver/wireguard:latest  # Docker image for the WireGuard service
-    container_name: wireguard  # Name of the container
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: wireguard
     cap_add:
       - NET_ADMIN  # Add NET_ADMIN capability
       - SYS_MODULE  # Optional: Add SYS_MODULE capability
     environment:
-      - PUID=1000  # User ID for file permissions
-      - PGID=1000  # Group ID for file permissions
-      - TZ=Europe/Athens  # Timezone
-      - SERVERURL=968a09db9e44.sn.mynetname.net # Optional: Server URL
-      - SERVERPORT=51820 # Optional: Server port
-      - PEERS=pixel # Optional: Peer configuration
-      - PEERDNS=auto # Optional: Peer DNS configuration
-      - INTERNAL_SUBNET=10.13.13.0 # Optional: Internal subnet
-      - ALLOWEDIPS=0.0.0.0/0 # Optional: Allowed IPs
-      - PERSISTENTKEEPALIVE_PEERS= # Optional: Persistent keepalive peers
-      - LOG_CONFS=true # Optional: Log configurations
+      - PUID=${PUID}  # User ID for file permissions
+      - PGID=${PGID}  # Group ID for file permissions
+      - TZ=${TZ}  # Timezone
+      - SERVERURL=${SERVERURL}  # Optional: Server URL
+      - SERVERPORT=${SERVERPORT}  # Optional: Server port
+      - PEERS=${PEERS}  # Optional: Peer configuration
+      - PEERDNS=${PEERDNS}  # Optional: Peer DNS configuration
+      - INTERNAL_SUBNET=${INTERNAL_SUBNET}  # Optional: Internal subnet
+      - ALLOWEDIPS=${ALLOWEDIPS}  # Optional: Allowed IPs
+      - PERSISTENTKEEPALIVE_PEERS=${PERSISTENTKEEPALIVE_PEERS}  # Optional: Persistent keepalive peers
+      - LOG_CONFS=${LOG_CONFS}  # Optional: Log configurations
     volumes:
       - wireguard_data:/config  # Mount external volume for WireGuard configuration
-      - /lib/modules:/lib/modules # Optional: Mount kernel modules
+      - /lib/modules:/lib/modules  # Optional: Mount kernel modules
     ports:
-      - 51820:51820/udp  # Expose and forward port 51820 using UDP
+      - ${HOST_PORT}:${CONTAINER_PORT}/udp  # Expose and forward port using UDP
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1  # Set a specific kernel parameter
     restart: unless-stopped  # Restart policy for the container
