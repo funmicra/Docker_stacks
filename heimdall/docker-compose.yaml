@@ -32,10 +32,10 @@ services:
 networks:
   default:
     name: Apps-Network
-#    external: true
+    external: true
 
 # Define an external volume named "heimdall_config"
 volumes:
   heimdall_config:
     name: heimdall_config
-    external: true
+#    external: true
