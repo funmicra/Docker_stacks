@@ -13,8 +13,9 @@ services:
         image: portainer/portainer-ce:latest  # Use the latest Portainer CE image
 
 volumes:
-    portainer_data:
-        external: true  # Use an external volume named "portainer_data"
+  portainer_data:
+    name: portainer_data
+#    external: true  # Use an external volume named "portainer_data"
 
 networks:
   default:
