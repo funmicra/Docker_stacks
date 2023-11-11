@@ -19,5 +19,5 @@ volumes:
 
 networks:
   default:
-    external:
+ #   external:
       name: Apps-Network  # Use an external network named "Apps-Network"
