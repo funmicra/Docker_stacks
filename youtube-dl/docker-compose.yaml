@@ -20,19 +20,19 @@ services:  # Define the services that make up the application.
 
 networks:  # Define networks for inter-container communication.
   default:  # Default network.
-    external:  # Declare it as an external network.
+#    external:  # Declare it as an external network.
       name: Apps-Network  # Use the Apps-Network.
 
 volumes:  # Define named volumes for storing data.
   youtubedl_config:  # youtubedl_config volume.
     name: youtubedl_config  # Name of the volume.
-    external: true  # External volume reference.
+#    external: true  # External volume reference.
   youtubedl_audio:  # youtubedl_audio volume.
     name: youtubedl_audio  # Name of the volume.
-    external: true  # External volume reference.
+#    external: true  # External volume reference.
   youtubedl_subscriptions:  # youtubedl_subscriptions volume.
     name: youtubedl_subscriptions  # Name of the volume.
-    external: true  # External volume reference.
+#    external: true  # External volume reference.
   youtubedl_users:  # youtubedl_users volume.
     name: youtubedl_users  # Name of the volume.
-    external: true  # External volume reference.
+#    external: true  # External volume reference.
