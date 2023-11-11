@@ -5,9 +5,9 @@ services:
     image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Athens
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
       - WEBUI_PORT=8080
     volumes:
       - qbittorrent:/config
@@ -17,9 +17,12 @@ services:
       - 6881:6881
       - 6881:6881/udp
     restart: unless-stopped
+
 volumes:
   qbittorrent:
     name: qbittorrent
+    external: true
+    
 networks:
   default:
     external:
