@@ -31,8 +31,8 @@ services:
 # Define an external network named "Apps-Network"
 networks:
   default:
-    external:
-      name: Apps-Network
+    name: Apps-Network
+    external: true
 
 # Define an external volume named "heimdall_config"
 volumes:
