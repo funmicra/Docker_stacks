@@ -7,16 +7,21 @@ services:
     security_opt:
       - seccomp:unconfined #optional
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Athens
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     volumes:
-      - /home/funmicra/Appdata/libreoffice/config:/config
+      - libreoffice:/config
     ports:
       - 3010:3000
       - 3011:3001
     restart: unless-stopped
 
+volumes:
+  libreoffice:
+    name: libreoffice
+    external: true
+    
 networks:
   default:
     external:
