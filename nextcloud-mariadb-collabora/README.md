@@ -23,21 +23,16 @@ cd nextcloud-docker
 Create a .env file in the same directory as your docker-compose.yml file. Add your credentials:
 
 ```plaintext
-# Nextcloud Environment Variables
-PUID=1000
-PGID=1000
-TZ=Europe/Athens
-
 # MariaDB Environment Variables
-MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
-MYSQL_DATABASE=USER_DB_NAME
-MYSQL_USER=MYSQL_USER
-MYSQL_PASSWORD=DATABASE_PASSWORD
+MYSQL_ROOT_PASSWORD=password
+MYSQL_DATABASE=name
+MYSQL_USER=name
+MYSQL_PASSWORD=password
 
 # Collabora Environment Variables
-COLLABORA_PASSWORD=YOUR_COLLABORA_PASSWORD
-COLLABORA_USERNAME=YOUR_COLLABORA_USERNAME
-COLLABORA_DOMAIN=YOUR_COLLABORA_DOMAIN
+COLLABORA_PASSWORD=password
+COLLABORA_USERNAME=username
+COLLABORA_DOMAIN=domain
 ```
 Replace the placeholder values with your actual credentials.
 
