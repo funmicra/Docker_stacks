@@ -3,12 +3,17 @@ version: "3.5"
 services:
     scrypted:
         volumes:
-            - /home/funmicra/Appdate/scrypted/volume:/server/volume
+            - scrypted:/server/volume
         container_name: scrypted
         restart: unless-stopped
         image: koush/scrypted
         ports:
             - 10443:8080
+
+volumes:
+  scrypted:
+    name: scrypted
+#    external: true
 
 networks:
   default:
