@@ -6,16 +6,21 @@ services:
     container_name: duckdns
     network_mode: host #optional
     environment:
-      - PUID=1000 #optional
-      - PGID=1000 #optional
-      - TZ=Europe/Athens #optional
-      - SUBDOMAINS=subdomain1,subdomain2
-      - TOKEN=token
+      - PUID=${PUID} #optional
+      - PGID=${PGID} #optional
+      - TZ=${TZ} #optional
+      - SUBDOMAINS=${SUBDOMAINS}
+      - TOKEN=${TOKEN}
       - UPDATE_IP=ipv4 #optional
       - LOG_FILE=false #optional
     volumes:
-      - /home/funmicra/Appdata/duckdns:/config #optional
+      - duckdns:/config #optional
     restart: unless-stopped
+
+volumes:
+  duckdns:
+    name: duckdns
+#    external: true
 
 networks:
   default:
