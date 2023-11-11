@@ -28,10 +28,10 @@ services:
       - PUID=1000               # Process User ID
       - PGID=1000               # Process Group ID
       - TZ=Europe/Athens        # Timezone
-      - MYSQL_ROOT_PASSWORD="ROOT_ACCESS_PASSWORD"   # MariaDB root password
-      - MYSQL_DATABASE="USER_DB_NAME"                # Database name
-      - MYSQL_USER="MYSQL_USER"                      # Database user
-      - MYSQL_PASSWORD="DATABASE_PASSWORD"           # Database password
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}   # MariaDB root password
+      - MYSQL_DATABASE=${MYSQL_DATABASE}                # Database name
+      - MYSQL_USER=${MYSQL_USER}                      # Database user
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}           # Database password
     volumes:
       - nextcloud_db_config:/config    # MariaDB configuration data
       - nextcloud_db_data:/data        # MariaDB data
