@@ -5,9 +5,9 @@ services:
     image: lscr.io/linuxserver/code-server:latest
     container_name: code-server
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Athens
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
       - PASSWORD=${PASSWORD}
       - SUDO_PASSWORD=${SUDO_PASSWORD}
       - DEFAULT_WORKSPACE=${DEFAULT_WORKSPACE}
@@ -20,6 +20,7 @@ services:
 volumes:
    code-server:
       name: code-server
+      external: true
       
 networks:
   default:
