@@ -30,9 +30,10 @@ services:
 
 volumes:
   wireguard_data:
-    external: true  # Define an external volume named 'wireguard_data'
+    name: wireguard_data
+#    external: true  # Define an external volume named 'wireguard_data'
 
 networks:
   default:
-    external:
+#    external:
       name: Apps-Network  # External network named 'Apps-Network'
