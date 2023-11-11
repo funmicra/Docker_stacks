@@ -9,9 +9,14 @@ services:
       - '81:81'
       - '443:443'
     volumes:
-      - /home/funmicra/Appdata/Nginx-Proxy/data:/data
-      - /home/funmicra/Appdata/Nginx-Proxy/letsencrypt:/etc/letsencrypt
+      - Nginx-Proxy:/data
+      - Nginx-Proxy:/etc/letsencrypt
     restart: unless-stopped
+
+volumes:
+  Nginx-Proxy:
+    name: Nginx-Proxy
+#    extenal: true
 
 networks:
   default:
