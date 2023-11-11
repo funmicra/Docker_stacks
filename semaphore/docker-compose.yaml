@@ -47,7 +47,7 @@ services:
 
 networks:
   Apps-Network:
-    external: true
+#    external: true
     name: Apps-Network
 
 volumes:
