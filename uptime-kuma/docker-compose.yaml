@@ -12,10 +12,10 @@ services:
 
 networks:
   default:
-    external:
+#    external:
       name: Apps-Network  # Use an external network named "Apps-Network"
 
 volumes:
   uptime_kuma_data:
     name: uptime_kuma_data
-    external: true  # Use an external volume for Uptime Kuma data
+#    external: true  # Use an external volume for Uptime Kuma data
