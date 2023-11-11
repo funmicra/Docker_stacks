@@ -5,15 +5,20 @@ services:
     image: lscr.io/linuxserver/remmina:latest
     container_name: remmina
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Athens
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     volumes:
-      - /home/funmicra/Appdata/remmina:/config
+      - remmina:/config
     ports:
       - 3000:3000
       - 3001:3001
     restart: unless-stopped
+
+volumes:
+  remmina:
+    name: remmina
+    external: true
 
 networks:
   default:
