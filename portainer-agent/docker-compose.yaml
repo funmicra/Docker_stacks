@@ -13,4 +13,4 @@ services:
 networks:
   default:
     name: Apps-Network
-    external: true
+#    external: true
