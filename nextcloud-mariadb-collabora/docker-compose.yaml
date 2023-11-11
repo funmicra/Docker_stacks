@@ -4,7 +4,7 @@ services:
   # Nextcloud service configuration
   nextcloud:
     image: lscr.io/linuxserver/nextcloud:latest
-    container_name: nextcloud
+    container_name: Nextcloud
     environment:
       - PUID=1000               # Process User ID
       - PGID=1000               # Process Group ID
@@ -23,7 +23,7 @@ services:
   # MariaDB service configuration
   mariadb:
     image: lscr.io/linuxserver/mariadb:latest
-    container_name: nextcloud_db
+    container_name: Nextcloud-db
     environment:
       - PUID=1000               # Process User ID
       - PGID=1000               # Process Group ID
@@ -42,8 +42,8 @@ services:
   # Collabora Online service configuration
   code:
     image: collabora/code:latest  # Docker image to use for the service
-    container_name: collabora-office  # Name of the container
-    restart: always  # Restart policy: always (restart container automatically)
+    container_name: Nextcloud-office  # Name of the container
+    restart: unless-stopped  # Restart policy: always (restart container automatically)
     environment:
       - password=${COLLABORA_PASSWORD}  # Set environment variable for password
       - username=${COLLABORA_USERNAME}  # Set environment variable for username
@@ -54,19 +54,19 @@ services:
 
 networks:
   default:
-    external:
+#    external:
       name: Apps-Network  # External network configuration named Apps-Network
 
 volumes:
   nextcloud_config:
     name: nextcloud_config   # Named volume for Nextcloud config
-    external: true           # External volume
+#    external: true           # External volume
   nextcloud_data:
     name: nextcloud_data     # Named volume for Nextcloud data
-    external: true           # External volume
+#    external: true           # External volume
   nextcloud_db_config:
     name: nextcloud_db_config   # Named volume for MariaDB config
-    external: true               # External volume
+#    external: true               # External volume
   nextcloud_db_data:
     name: nextcloud_db_data     # Named volume for MariaDB data
-    external: true               # External volume
+#    external: true               # External volume
