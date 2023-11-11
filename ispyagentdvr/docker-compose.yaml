@@ -19,16 +19,16 @@ services:
 
 networks:
   default:
-    external:
+#    external:
       name: Apps-Network
 
 volumes:
   ispyagentdvr_config:  # Define a named volume for config
     name: ispyagentdvr_config
-    external: true
+#    external: true
   ispyagentdvr_recordings:  # Define a named volume for recordings
     name: ispyagentdvr_recordings
-    external: true
+#    external: true
   ispyagentdvr_commands:  # Define a named volume for commands
     name: ispyagentdvr_commands
-    external: true
+#    external: true
