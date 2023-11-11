@@ -6,7 +6,7 @@ services:
     image: vaultwarden/server:latest
     restart: unless-stopped
     volumes:
-      - /home/funmicra/Appdata/vaultwarden/data/:/data/
+      - vaultwaden:/data/
     ports:
       - 89:80
     environment:
@@ -24,16 +24,20 @@ services:
       - SIGNUPS_VERIFY_RESEND_TIME=3600
       - SIGNUPS_VERIFY_RESEND_LIMIT=5
 #      - SIGNUPS_DOMAINS_WHITELIST=yourdomainhere.com,anotherdomain.com
-      - SMTP_HOST=smtp.gmail.com
-      - SMTP_FROM=funmicra@gmail.com
-      - SMTP_FROM_NAME=funmicra
-      - SMTP_SECURITY=force_tls
-      - SMTP_PORT=465
-      - SMTP_USERNAME=funmicra@gmail.com
-      - SMTP_PASSWORD=wzzujaqaixupbhmn
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_FROM=${SMTP_FROM}
+      - SMTP_FROM_NAME=${SMTP_FROM_NAME}
+      - SMTP_SECURITY=${SMTP_SECURITY}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
       - SMTP_AUTH_MECHANISM="Mechanism"
 
 networks:
   default:
     external:
       name: Apps-Network
+
+volumes:
+  vaultwaden:
+     name: vaultwaden
