@@ -3,7 +3,7 @@ version: "2.1"
 services:
   netbootxyz:
     image: ghcr.io/netbootxyz/netbootxyz
-    container_name: netbootxyz
+    container_name: Netboot.xyz
     environment:
       - MENU_VERSION=2.0.47 # optional
     volumes:
