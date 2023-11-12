@@ -1,0 +1,27 @@
+---
+version: "2.1"
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: Duplicati
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - CLI_ARGS=${CLI_ARGS} #optional
+    volumes:
+      - duplicati:/config
+      - ${backups}:/backups
+      - ${source}:/source
+    ports:
+      - 8200:8200
+    restart: unless-stopped
+
+volumes:
+  duplicati:
+    name: duplicati
+
+networks:
+  default:
+#    external:
+      name: Apps-Network
