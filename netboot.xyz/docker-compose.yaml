@@ -1,0 +1,27 @@
+---
+version: "2.1"
+services:
+  netbootxyz:
+    image: ghcr.io/netbootxyz/netbootxyz
+    container_name: netbootxyz
+    environment:
+      - MENU_VERSION=2.0.47 # optional
+    volumes:
+      - netbootxyz_config:/config # optional
+      - netbootxyz_assets:/assets # optional
+    ports:
+      - 3002:3000
+      - 69:69/udp
+      - 8081:80 #optional
+    restart: unless-stopped
+
+networks:
+  default:
+#    external:
+      name: Apps-Network
+
+volumes:
+  netbootxyz_config:
+    name: netbootxyz_config
+  netbootxyz_assets:
+    name: netbootxyz_assets
