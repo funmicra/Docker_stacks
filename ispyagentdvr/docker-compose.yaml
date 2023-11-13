@@ -2,7 +2,7 @@ version: "3.9"
 services:
   ispyagentdvr:
     image: mekayelanik/ispyagentdvr:latest
-    container_name: ispyagentdvr
+    container_name: ispyAgentDVR
     environment:
       - PUID=1000
       - PGID=1000
@@ -19,16 +19,13 @@ services:
 
 networks:
   default:
-#    external:
+    external:
       name: Apps-Network
 
 volumes:
   ispyagentdvr_config:  # Define a named volume for config
     name: ispyagentdvr_config
-#    external: true
   ispyagentdvr_recordings:  # Define a named volume for recordings
     name: ispyagentdvr_recordings
-#    external: true
   ispyagentdvr_commands:  # Define a named volume for commands
     name: ispyagentdvr_commands
-#    external: true
