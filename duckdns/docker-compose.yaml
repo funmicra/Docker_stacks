@@ -3,7 +3,7 @@ version: "2.1"
 services:
   duckdns:
     image: lscr.io/linuxserver/duckdns:latest
-    container_name: duckdns
+    container_name:DuckDNS
     network_mode: host #optional
     environment:
       - PUID=${PUID} #optional
@@ -20,7 +20,7 @@ services:
 volumes:
   duckdns:
     name: duckdns
-#    external: true
+    external: true
 
 networks:
   default:
