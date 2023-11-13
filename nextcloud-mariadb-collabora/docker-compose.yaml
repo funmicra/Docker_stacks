@@ -54,19 +54,15 @@ services:
 
 networks:
   default:
-#    external:
+    external:
       name: Apps-Network  # External network configuration named Apps-Network
 
 volumes:
   nextcloud_config:
     name: nextcloud_config   # Named volume for Nextcloud config
-#    external: true           # External volume
   nextcloud_data:
     name: nextcloud_data     # Named volume for Nextcloud data
-#    external: true           # External volume
   nextcloud_db_config:
     name: nextcloud_db_config   # Named volume for MariaDB config
-#    external: true               # External volume
   nextcloud_db_data:
     name: nextcloud_db_data     # Named volume for MariaDB data
-#    external: true               # External volume
