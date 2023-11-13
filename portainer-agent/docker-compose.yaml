@@ -3,7 +3,7 @@ services:
     agent:
         ports:
             - '9001:9001'
-        container_name: portainer-agent
+        container_name: Portainer-Agent
         restart: unless-stopped
         volumes:
             - '/var/run/docker.sock:/var/run/docker.sock'
@@ -13,4 +13,4 @@ services:
 networks:
   default:
     name: Apps-Network
-#    external: true
+    external: true
