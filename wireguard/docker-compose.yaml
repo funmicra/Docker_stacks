@@ -3,7 +3,7 @@ version: "2.1"
 services:
   wireguard:
     image: lscr.io/linuxserver/wireguard:latest
-    container_name: wireguard
+    container_name: Wireguard
     cap_add:
       - NET_ADMIN  # Add NET_ADMIN capability
       - SYS_MODULE  # Optional: Add SYS_MODULE capability
@@ -31,9 +31,8 @@ services:
 volumes:
   wireguard_data:
     name: wireguard_data
-#    external: true  # Define an external volume named 'wireguard_data'
 
 networks:
   default:
-#    external:
+    external:
       name: Apps-Network  # External network named 'Apps-Network'
