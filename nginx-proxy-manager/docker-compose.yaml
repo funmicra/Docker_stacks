@@ -2,7 +2,7 @@ version: '3.8'
 services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'
-    container_name: nginx-proxy-manager
+    container_name: Nginx-Proxy-Manager
     restart: unless-stopped
     ports:
       - '80:80'
@@ -16,9 +16,8 @@ services:
 volumes:
   Nginx-Proxy:
     name: Nginx-Proxy
-#    extenal: true
 
 networks:
   default:
-#    external:
+    external:
       name: Apps-Network
