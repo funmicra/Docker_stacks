@@ -15,9 +15,8 @@ services:
 volumes:
   portainer_data:
     name: portainer_data
-#    external: true  # Use an external volume named "portainer_data"
 
 networks:
   default:
- #   external:
+    external:
       name: Apps-Network  # Use an external network named "Apps-Network"
