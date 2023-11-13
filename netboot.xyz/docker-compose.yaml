@@ -17,7 +17,7 @@ services:
 
 networks:
   default:
-#    external:
+    external:
       name: Apps-Network
 
 volumes:
