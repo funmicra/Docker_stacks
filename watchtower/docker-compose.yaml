@@ -3,7 +3,7 @@ version: "3"
 services:
   watchtower:
     image: containrrr/watchtower  # Use the Watchtower Docker image
-    container_name: watchtower  # Set the name of the container to "watchtower"
+    container_name: Watchtower  # Set the name of the container to "watchtower"
     restart: unless-stopped  # Restart the container unless stopped manually
 
     # Environment variables for Watchtower
@@ -15,5 +15,5 @@ services:
 
 networks:
   default:
-#    external:
+    external:
       name: Apps-Network  # Use an external network named "Apps-Network"
