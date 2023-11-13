@@ -1,12 +1,12 @@
 version: '3.3'
 services:
     cloudflared:
-        container_name: 'nextcloud-tunnel'
+        container_name: 'Nextcloud-Tunnel'
         image: 'cloudflare/cloudflared:latest'
         command: 'tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}'
         restart: unless-stopped
 
 networks:
   default:
-#    external:
+    external:
       name: Apps-Network
