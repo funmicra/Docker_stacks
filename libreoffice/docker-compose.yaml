@@ -20,9 +20,8 @@ services:
 volumes:
   libreoffice:
     name: libreoffice
-#    external: true
     
 networks:
   default:
-#    external:
+    external:
       name: Apps-Network
