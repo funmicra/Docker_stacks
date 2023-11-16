@@ -5,6 +5,7 @@ services:
   mysql:
     restart: unless-stopped
     image: mysql:8.0
+    container_name: Semaphore_db
     hostname: mysql
     volumes:
       - semaphore-mysql:/var/lib/mysql
@@ -14,13 +15,14 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     networks:
-      - Apps-Network
+      - Semaphore
 
   semaphore:
     restart: unless-stopped
     ports:
-      - 3000:3000
+      - 3300:3000
     image: semaphoreui/semaphore:latest
+    container_name: Semaphore
     environment:
       SEMAPHORE_DB_USER: ${SEMAPHORE_DB_USER}
       SEMAPHORE_DB_PASS: ${SEMAPHORE_DB_PASS}
@@ -43,12 +45,12 @@ services:
 #      SEMAPHORE_LDAP_DN_SEARCH: ${SEMAPHORE_LDAP_DN_SEARCH}
 #      SEMAPHORE_LDAP_SEARCH_FILTER: ${SEMAPHORE_LDAP_SEARCH_FILTER}
     networks:
-      - Apps-Network
+      - Semaphore
 
 networks:
-  Apps-Network:
+  Semaphore:
 #    external: true
-    name: Apps-Network
+    name: Semaphore
 
 volumes:
   semaphore-mysql:
