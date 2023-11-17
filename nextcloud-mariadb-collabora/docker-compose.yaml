@@ -10,8 +10,8 @@ services:
       - PGID=1000               # Process Group ID
       - TZ=Europe/Athens        # Timezone
     volumes:
-      - nextcloud_config:/config     # Nextcloud configuration data
-      - nextcloud_data:/data         # Nextcloud data
+      - /opt/appdata/nextcloud/config:/config     # Nextcloud configuration data
+      - /opt/appdata/nextcloud/data:/data         # Nextcloud data
       - /media/storage:/media/storage   # Mount from host system
       - /media/NFS-WD:/media/NFS-WD     # Another mount from host system
     ports:
@@ -33,8 +33,8 @@ services:
       - MYSQL_USER=${MYSQL_USER}                      # Database user
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}           # Database password
     volumes:
-      - nextcloud_db_config:/config    # MariaDB configuration data
-      - nextcloud_db_data:/data        # MariaDB data
+      - /opt/appdata/nextcloud_db/config:/config    # MariaDB configuration data
+      - /opt/appdata/nextcloud_db/data:/data        # MariaDB data
     ports:
       - 3306:3306             # Maps host port 3306 to container port 3306 for MySQL
     restart: unless-stopped   # Restart policy
@@ -56,13 +56,3 @@ networks:
   default:
     external:
       name: Apps-Network  # External network configuration named Apps-Network
-
-volumes:
-  nextcloud_config:
-    name: nextcloud_config   # Named volume for Nextcloud config
-  nextcloud_data:
-    name: nextcloud_data     # Named volume for Nextcloud data
-  nextcloud_db_config:
-    name: nextcloud_db_config   # Named volume for MariaDB config
-  nextcloud_db_data:
-    name: nextcloud_db_data     # Named volume for MariaDB data
