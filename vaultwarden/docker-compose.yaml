@@ -6,7 +6,7 @@ services:
     image: vaultwarden/server:latest
     restart: unless-stopped
     volumes:
-      - vaultwaden:/data/
+      - /opt/appdata/vaultwaden/data:/data/
     ports:
       - 89:80
     environment:
@@ -37,7 +37,3 @@ networks:
   default:
 #    external:
       name: Apps-Network
-
-volumes:
-  vaultwaden:
-     name: vaultwaden
