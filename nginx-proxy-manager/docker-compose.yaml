@@ -9,13 +9,9 @@ services:
       - '81:81'
       - '443:443'
     volumes:
-      - Nginx-Proxy:/data
-      - Nginx-Proxy:/etc/letsencrypt
+      - /opt/appdata/Nginx-Proxy/data:/data
+      - /opt/appdata/Nginx-Proxy/letsencrypt:/etc/letsencrypt
     restart: unless-stopped
-
-volumes:
-  Nginx-Proxy:
-    name: Nginx-Proxy
 
 networks:
   default:
