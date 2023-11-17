@@ -12,15 +12,10 @@ services:
       - SUDO_PASSWORD=${SUDO_PASSWORD}
       - DEFAULT_WORKSPACE=${DEFAULT_WORKSPACE}
     volumes:
-      - code-server:/config
+      - /opt/appdata/code-server/config:/config
     ports:
       - 2443:8443
     restart: unless-stopped
-
-volumes:
-   code-server:
-      name: code-server
-      external: true
       
 networks:
   default:
