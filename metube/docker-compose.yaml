@@ -7,12 +7,7 @@ services:
     ports:
       - "8081:8081"
     volumes:
-      - metube:/downloads
-
-volumes:
-  metube:
-    name: metube
-
+      - /opt/appdata/metube:/downloads
 
 networks:
   default:
