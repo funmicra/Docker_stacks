@@ -14,13 +14,8 @@ services:
       - UPDATE_IP=ipv4 #optional
       - LOG_FILE=false #optional
     volumes:
-      - duckdns:/config #optional
+      - /opt/appdata/duckdns/config:/config #optional
     restart: unless-stopped
-
-volumes:
-  duckdns:
-    name: duckdns
-    external: true
 
 networks:
   default:
