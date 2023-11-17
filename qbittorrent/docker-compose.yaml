@@ -10,18 +10,13 @@ services:
       - TZ=${TZ}
       - WEBUI_PORT=8080
     volumes:
-      - qbittorrent:/config
+      - /opt/appdata/qbittorrent/config:/config
       - /media/qb-Downloads:/downloads
     ports:
       - 8080:8080
       - 6881:6881
       - 6881:6881/udp
     restart: unless-stopped
-
-volumes:
-  qbittorrent:
-    name: qbittorrent
-#    external: true
     
 networks:
   default:
