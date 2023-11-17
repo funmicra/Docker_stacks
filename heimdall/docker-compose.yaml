@@ -18,7 +18,7 @@ services:
 
     # Mount points for persisting data
     volumes:
-      - heimdall_config:/config  # Mount a volume for Heimdall configuration
+      - /opt/appdata/heimdall/config:/config  # Mount a volume for Heimdall configuration
 
     # Port mappings from host to container
     ports:
@@ -33,8 +33,3 @@ networks:
   default:
     name: Apps-Network
     external: true
-
-# Define an external volume named "heimdall_config"
-volumes:
-  heimdall_config:
-    name: heimdall_config
