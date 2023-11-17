@@ -12,12 +12,6 @@ services:
       - 80:80/tcp
       - 443:443/tcp
     volumes:
-      - adguard-work:/opt/adguardhome/work
-      - adguard-conf:/opt/adguardhome/conf
+      - /opt/appdata/adguard/work:/opt/adguardhome/work
+      - /opt/appdata/adguard/conf:/opt/adguardhome/conf
     restart: unless-stopped
-
-volumes:
-  adguard-work:
-    name: adguard-work
-  adguard-conf:
-    name: adguard-conf
