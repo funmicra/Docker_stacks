@@ -3,17 +3,12 @@ version: "3.5"
 services:
     scrypted:
         volumes:
-            - scrypted:/server/volume
+            - /opt/appdata/scrypted/config:/server/volume
         container_name: scrypted
         restart: unless-stopped
         image: koush/scrypted
         ports:
             - 10443:8080
-
-volumes:
-  scrypted:
-    name: scrypted
-#    external: true
 
 networks:
   default:
