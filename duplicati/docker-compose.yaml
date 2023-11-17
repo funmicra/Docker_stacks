@@ -10,16 +10,12 @@ services:
       - TZ=${TZ}
       - CLI_ARGS=${CLI_ARGS} #optional
     volumes:
-      - duplicati:/config
+      - /opt/appdata/duplicati/config:/config
       - ${backups}:/backups
       - ${source}:/source
     ports:
       - 8200:8200
     restart: unless-stopped
-
-volumes:
-  duplicati:
-    name: duplicati
 
 networks:
   default:
