@@ -8,7 +8,7 @@ services:
     container_name: Semaphore_db
     hostname: mysql
     volumes:
-      - semaphore-mysql:/var/lib/mysql
+      - /opt/appdata/semaphore/mysql:/var/lib/mysql
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: ${MYSQL_RANDOM_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -51,7 +51,3 @@ networks:
   Semaphore:
 #    external: true
     name: Semaphore
-
-volumes:
-  semaphore-mysql:
-     name: semaphore-mysql
