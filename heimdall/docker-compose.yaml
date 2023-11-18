@@ -12,9 +12,9 @@ services:
 
     # Environment variables for the container
     environment:
-      - PUID=1000  # User ID for file ownership
-      - PGID=1000  # Group ID for file ownership
-      - TZ=Europe/Athens  # Timezone setting
+      - PUID=${PUID}  # User ID for file ownership
+      - PGID=${PGID}  # Group ID for file ownership
+      - TZ=${TZ}  # Timezone setting
 
     # Mount points for persisting data
     volumes:
