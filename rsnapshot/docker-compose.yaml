@@ -1,0 +1,15 @@
+---
+version: "2.1"
+services:
+  rsnapshot:
+    image: lscr.io/linuxserver/rsnapshot:latest
+    container_name: rSnapshot
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /opt/appdata/rsnapshot/config:/config
+      - /home/funmicra/rsnapshot:/.snapshots #optional
+      - /home/funmicra:/data #optional
+    restart: unless-stopped

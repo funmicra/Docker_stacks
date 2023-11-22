@@ -1,0 +1,4 @@
+ingress:
+  - hostname: black-crab.cc
+    service: http://192.168.88.22
+  - service: http_status:404
