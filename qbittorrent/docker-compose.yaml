@@ -3,22 +3,21 @@ version: "2.1"
 services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
-    container_name: qbittorrent
+    container_name: qBittorrent
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - WEBUI_PORT=8080
+      - WEBUI_PORT=8090
     volumes:
       - /opt/appdata/qbittorrent/config:/config
-      - /media/qb-Downloads:/downloads
+      - /opt/appdata/qbittorrent/downloads:/downloads
     ports:
-      - 8080:8080
+      - 8090:8090
       - 6881:6881
       - 6881:6881/udp
     restart: unless-stopped
     
 networks:
   default:
-#    external:
       name: Apps-Network
