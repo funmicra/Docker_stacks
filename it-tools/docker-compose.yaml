@@ -1,12 +1,12 @@
-version: '3.9'
 services:
     it-tools:
         image: 'corentinth/it-tools:latest'
         ports:
-            - '8080:80'
+            - 8080:80
         restart: unless-stopped
         container_name: IT-Tools
 
 networks:
   default:
+    external: true
     name: Apps-Network
