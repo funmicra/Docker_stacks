@@ -1,5 +1,3 @@
----
-version: "2.1"
 services:
   libreoffice:
     image: lscr.io/linuxserver/libreoffice:latest
@@ -19,5 +17,5 @@ services:
     
 networks:
   default:
-    external:
-      name: Apps-Network
+    external: true
+    name: Apps-Network
