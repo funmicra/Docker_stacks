@@ -8,7 +8,7 @@ services:
       - TZ=Europe/Athens        # Timezone
     volumes:
       - /opt/appdata/nextcloud/config:/config     # Nextcloud configuration data
-      - /media/volumes/nextcloud/data:/data
+      - /opt/appdata/nextcloud/data:/data
       - /media/storage/data:/data   # Mount from host system
       - /media/NFS-WD:/media/NFS-WD     # Another mount from host system
     ports:

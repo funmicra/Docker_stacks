@@ -32,3 +32,7 @@ services:
     volumes:
       - /opt/appdata/bookstack-db:/config
     restart: unless-stopped
+networks:
+  default:
+    external: true
+    name: Apps-Network
