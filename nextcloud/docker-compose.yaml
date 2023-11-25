@@ -1,7 +1,4 @@
-version: '3'  # Docker Compose file version
-
 services:
-  # Nextcloud service configuration
   nextcloud:
     image: lscr.io/linuxserver/nextcloud:latest
     container_name: Nextcloud
@@ -11,8 +8,8 @@ services:
       - TZ=Europe/Athens        # Timezone
     volumes:
       - /opt/appdata/nextcloud/config:/config     # Nextcloud configuration data
-      - /opt/appdata/nextcloud/data:/data         # Nextcloud data
-#      - /media/storage/data:/data   # Mount from host system
+      - /media/volumes/nextcloud/data:/data
+      - /media/storage/data:/data   # Mount from host system
       - /media/NFS-WD:/media/NFS-WD     # Another mount from host system
     ports:
       - 443:443              # Maps host port 443 to container port 443 for HTTPS
@@ -20,7 +17,6 @@ services:
       - mariadb              # Depends on the MariaDB service
     restart: unless-stopped  # Restart policy
 
-  # MariaDB service configuration
   mariadb:
     image: lscr.io/linuxserver/mariadb:latest
     container_name: Nextcloud-db
@@ -39,7 +35,6 @@ services:
       - 3306:3306             # Maps host port 3306 to container port 3306 for MySQL
     restart: unless-stopped   # Restart policy
 
-  # Collabora Online service configuration
   code:
     image: collabora/code:latest  # Docker image to use for the service
     container_name: Nextcloud-office  # Name of the container
@@ -54,5 +49,5 @@ services:
 
 networks:
   default:
-    external:
-      name: Apps-Network  # External network configuration named Apps-Network
+    external: true
+    name: Apps-Network  # External network configuration named Apps-Network
