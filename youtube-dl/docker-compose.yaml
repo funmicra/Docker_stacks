@@ -1,5 +1,3 @@
-version: "3"  # Specify the version of Docker Compose syntax being used.
-
 services:  # Define the services that make up the application.
   ytdl_material:  # Service name for YouTube-DL Material container.
     container_name: YoutTube-dl  # Assign a specific name to the container.
@@ -20,5 +18,4 @@ services:  # Define the services that make up the application.
 
 networks:  # Define networks for inter-container communication.
   default:  # Default network.
-    external:  # Declare it as an external network.
       name: Apps-Network  # Use the Apps-Network.

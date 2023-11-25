@@ -7,9 +7,9 @@ services:
     ports:
       - "8081:8081"
     volumes:
-      - /opt/appdata/metube:/downloads
+      - /media/volumes/metube:/downloads
 
 networks:
   default:
-    external:
-      name: Apps-Network
+    external: true
+    name: Apps-Network
