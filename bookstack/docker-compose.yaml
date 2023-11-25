@@ -5,7 +5,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - APP_URL=https://192.168.88.22
+      - APP_URL=http://192.168.88.22:6875
       - DB_HOST=bookstack_db
       - DB_PORT=3306
       - DB_USER=bookstack
