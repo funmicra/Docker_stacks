@@ -1,6 +1,4 @@
-version: "2"
-services:
-  adguardhome:
+services:  adguardhome:
     image: adguard/adguardhome
     container_name: Adguard-Home
     ports:
