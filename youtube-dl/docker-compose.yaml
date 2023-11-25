@@ -13,9 +13,10 @@ services:  # Define the services that make up the application.
       - /opt/appdata/youtubedl/subscriptions:/app/subscriptions  # Mount youtubedl_subscriptions volume to /app/subscriptions.
       - /opt/appdata/youtubedl/users:/app/users  # Mount youtubedl_users volume to /app/users.
     ports:  # Map container port 17442 to host port 8998.
-      - "8998:17442"
+      - 8998:17442
     image: tzahi12345/youtubedl-material:latest  # Docker image to use.
 
 networks:  # Define networks for inter-container communication.
   default:  # Default network.
-      name: Apps-Network  # Use the Apps-Network.
+    external: true
+    name: Apps-Network  # Use the Apps-Network.
