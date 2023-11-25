@@ -1,4 +1,3 @@
-version: '3.3'
 services:
     cloudflared:
         container_name: 'Office-Tunnel'
@@ -8,5 +7,5 @@ services:
 
 networks:
   default:
-    external:
-      name: Apps-Network
+    external: true
+    name: Apps-Network
