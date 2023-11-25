@@ -1,5 +1,3 @@
----
-version: "2.1"
 services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
@@ -20,4 +18,5 @@ services:
     
 networks:
   default:
-      name: Apps-Network
+    external: true
+    name: Apps-Network
