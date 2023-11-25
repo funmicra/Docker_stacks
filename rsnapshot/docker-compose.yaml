@@ -1,5 +1,3 @@
----
-version: "2.1"
 services:
   rsnapshot:
     image: lscr.io/linuxserver/rsnapshot:latest
