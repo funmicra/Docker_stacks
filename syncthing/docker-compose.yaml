@@ -1,5 +1,3 @@
----
-version: "3.3"
 services:
   syncthing:
     image: lscr.io/linuxserver/syncthing:latest
@@ -22,5 +20,5 @@ services:
 
 networks:
   default:
-    external:
-      name: Apps-Network
+    external: true
+    name: Apps-Network
