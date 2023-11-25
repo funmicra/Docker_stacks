@@ -1,7 +1,4 @@
-version: "3"
-
 services:
-
   mysql:
     restart: unless-stopped
     image: mysql:8.0
@@ -48,6 +45,6 @@ services:
       - Semaphore
 
 networks:
-  Semaphore:
-#    external: true
-    name: Semaphore
+  default:
+    external: true
+    name: Apps-Network
