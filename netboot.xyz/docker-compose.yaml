@@ -1,5 +1,3 @@
----
-version: "2.1"
 services:
   netbootxyz:
     image: ghcr.io/netbootxyz/netbootxyz
@@ -17,5 +15,5 @@ services:
 
 networks:
   default:
-    external:
-      name: Apps-Network
+    external: true
+    name: Apps-Network
