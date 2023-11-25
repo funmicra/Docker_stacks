@@ -1,9 +1,9 @@
 services:
-    cloudflared:
-        container_name: 'Office-Tunnel'
-        image: 'cloudflare/cloudflared:latest'
-        command: 'tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}'
-        restart: unless-stopped
+  cloudflared:
+    container_name: Office-Tunnel
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
+    restart: unless-stopped
 
 networks:
   default:
