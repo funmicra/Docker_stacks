@@ -9,7 +9,7 @@ services:
     volumes:
       - /opt/appdata/nextcloud/config:/config     # Nextcloud configuration data
       - /opt/appdata/nextcloud/data:/data
-      - /media/storage/data:/data   # Mount from host system
+      - /media/storage:/Storage   # Mount from host system
       - /media/NFS-WD:/media/NFS-WD     # Another mount from host system
     ports:
       - 443:443              # Maps host port 443 to container port 443 for HTTPS
