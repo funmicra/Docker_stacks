@@ -22,3 +22,9 @@ networks:
   default:
     external: true
     name: Apps-Network  # External network configuration named Apps-Network
+
+#sudo chown -R 65534:65534 /opt/appdata/prometheus/data
+
+#sudo chown -R 472:472 /opt/appdata/grafana
+
+
