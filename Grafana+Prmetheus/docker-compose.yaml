@@ -9,6 +9,7 @@ services:
     volumes:
       - /opt/appdata/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - /opt/appdata/prometheus/data:/prometheus
+    restart: unless-stopped
   grafana:
     image: grafana/grafana:latest
     container_name: Grafana
