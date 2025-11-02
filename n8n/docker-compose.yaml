@@ -33,6 +33,9 @@ services:
       - DB_POSTGRESDB_PASSWORD=${DB_POSTGRESDB_PASSWORD}
     volumes:
       - /opt/appdata/n8n:/home/node/.n8n
+      - /var/run/docker.sock:/var/run/docker.sock
+    user: root
+    entrypoint: /bin/sh -c "apk add docker-cli && n8n"
     depends_on:
       - cloudflared
       - postgres
