@@ -1,0 +1,12 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    privileged: true
+    image: ghcr.io/home-assistant/home-assistant:stable
+    environment:
+      - TZ=Europe/Athens
+    volumes:
+      - /opt/appdata/homeassistant/config:/config
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    network_mode: host #allows Home Assistant to discover and communicate with LAN devices directly.
