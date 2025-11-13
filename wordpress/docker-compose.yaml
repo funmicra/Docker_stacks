@@ -32,6 +32,11 @@ services:
     restart: always
     command: tunnel --no-autoupdate run --token ${TOKEN}
 
+networks:
+  default:
+    external: true
+    name: Apps-Network
+
 volumes:
   wordpress_app:
     external: true
