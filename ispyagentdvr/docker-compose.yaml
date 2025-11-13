@@ -7,9 +7,9 @@ services:
       - PGID=1000
       - TZ=Europe/Athens
     volumes:
-      - /opt/appdata/ispyagentdvr/config:/AgentDVR/Media/XML
-      - /opt/appdata/ispyagentdvr/recordings:/AgentDVR/Media/WebServerRoot/Media
-      - /opt/appdata/ispyagentdvr/commands:/AgentDVR/Commands
+      - config:/AgentDVR/Media/XML
+      - recordings:/AgentDVR/Media/WebServerRoot/Media
+      - commands:/AgentDVR/Commands
     ports:
       - 8090:8090
       - 3478:3478/udp
@@ -20,3 +20,8 @@ networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  config:
+  recordings:
+  commands:

@@ -5,8 +5,8 @@ services:
     environment:
       - MENU_VERSION=2.0.47 # optional
     volumes:
-      - /opt/appdata/netbootxyz/config:/config # optional
-      - /opt/appdata/netbootxyz/assets:/assets # optional
+      - config:/config # optional
+      - assets:/assets # optional
     ports:
       - 3002:3000
       - 69:69/udp
@@ -17,3 +17,7 @@ networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  config:
+  assets:

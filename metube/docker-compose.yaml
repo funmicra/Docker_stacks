@@ -6,9 +6,12 @@ services:
     ports:
       - 8081:8081
     volumes:
-      - /opt/appdata/metube:/downloads
+      - downloads:/downloads
 
 networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  downloads:

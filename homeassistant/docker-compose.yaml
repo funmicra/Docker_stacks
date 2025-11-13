@@ -6,7 +6,10 @@ services:
     environment:
       - TZ=Europe/Athens
     volumes:
-      - /opt/appdata/homeassistant/config:/config
+      - config:/config
       - /run/dbus:/run/dbus:ro
     restart: unless-stopped
     network_mode: host #allows Home Assistant to discover and communicate with LAN devices directly.
+
+volumes:
+  config:

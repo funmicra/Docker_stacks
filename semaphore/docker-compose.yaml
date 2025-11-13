@@ -5,7 +5,7 @@ services:
     container_name: Semaphore_db
     hostname: mysql
     volumes:
-      - /opt/appdata/semaphore/mysql:/var/lib/mysql
+      - db:/var/lib/mysql
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: ${MYSQL_RANDOM_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -48,3 +48,6 @@ networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  db:

@@ -8,7 +8,7 @@ services:
       - POSTGRES_PASSWORD=${DB_POSTGRESDB_PASSWORD}
       - POSTGRES_DB=${DB_POSTGRESDB_DATABASE}
     volumes:
-      - /opt/appdata/n8n_db:/var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
 
   n8n:
     image: n8nio/n8n:latest
@@ -34,7 +34,7 @@ services:
       - DB_POSTGRESDB_USER=${DB_POSTGRESDB_USER}
       - DB_POSTGRESDB_PASSWORD=${DB_POSTGRESDB_PASSWORD}
     volumes:
-      - /opt/appdata/n8n:/home/node/.n8n
+      - app:/home/node/.n8n
       - /var/run/docker.sock:/var/run/docker.sock
     user: root
     entrypoint: /bin/sh -c "apk add docker-cli && n8n"
@@ -52,3 +52,7 @@ networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  app:
+  db:

@@ -7,11 +7,11 @@ services:  # Define the services that make up the application.
       write_ytdl_config: 'true'  # Write YouTube-DL config.
     restart: unless-stopped  # Restart policy: restart unless manually stopped.
     volumes:  # Mount volumes to store data and configuration.
-      - /opt/appdata/youtubedl/config:/app/appdata  # Mount youtubedl_config volume to /app/appdata.
-      - /opt/appdata/youtubedl/audio:/app/audio  # Mount youtubedl_audio volume to /app/audio.
+      - config:/app/appdata  # Mount youtubedl_config volume to /app/appdata.
+      - audio:/app/audio  # Mount youtubedl_audio volume to /app/audio.
       - /media/youtube-dl:/app/video  # Mount host directory /media/youtube-dl to /app/video.
-      - /opt/appdata/youtubedl/subscriptions:/app/subscriptions  # Mount youtubedl_subscriptions volume to /app/subscriptions.
-      - /opt/appdata/youtubedl/users:/app/users  # Mount youtubedl_users volume to /app/users.
+      - subscriptions:/app/subscriptions  # Mount youtubedl_subscriptions volume to /app/subscriptions.
+      - users:/app/users  # Mount youtubedl_users volume to /app/users.
     ports:  # Map container port 17442 to host port 8998.
       - 8998:17442
     image: tzahi12345/youtubedl-material:latest  # Docker image to use.
@@ -20,3 +20,9 @@ networks:  # Define networks for inter-container communication.
   default:  # Default network.
     external: true
     name: Apps-Network  # Use the Apps-Network.
+
+volumes:
+  config:  # Volume for YouTube-DL Material configuration.
+  audio:  # Volume for audio files.
+  subscriptions:  # Volume for subscriptions data.
+  users:  # Volume for user data.

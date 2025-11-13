@@ -7,8 +7,8 @@ services:
       - PGID=1000               # Process Group ID
       - TZ=Europe/Athens        # Timezone
     volumes:
-      - /opt/appdata/nextcloud/config:/config     # Nextcloud configuration data
-      - /opt/appdata/nextcloud/data:/data
+      - app_config:/config     # Nextcloud configuration data
+      - app_data:/data
       - /media/storage:/Storage   # Mount from host system
       - /media/NFS-WD:/media/NFS-WD     # Another mount from host system
     ports:
@@ -29,8 +29,8 @@ services:
       - MYSQL_USER=${MYSQL_USER}                      # Database user
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}           # Database password
     volumes:
-      - /opt/appdata/nextcloud_db/config:/config    # MariaDB configuration data
-      - /opt/appdata/nextcloud_db/data:/data        # MariaDB data
+    - db_config:/config    # MariaDB configuration data
+    - db_data:/data        # MariaDB data
     ports:
       - 3306:3306             # Maps host port 3306 to container port 3306 for MySQL
     restart: unless-stopped   # Restart policy
@@ -46,11 +46,11 @@ services:
       - extra_params=--o:ssl.enable=true  # Additional parameters for collabora
     ports:
       - 9980:9980  # Map host port 9980 to container port 9980 for access
-  
+
   cloudflared_nextcloud:
     container_name: Nextcloud-Domain
     image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token ${NEXTCLOUD_TOKEN}
+    command: tunnel --no-autoupdate run --token ${TOKEN}
     restart: unless-stopped
 
   cloudflared_collabora:
@@ -63,3 +63,9 @@ networks:
   default:
     external: true
     name: Apps-Network  # External network configuration named Apps-Network
+
+volumes:
+  app_config:
+  app_data:
+  db_config:
+  db_data:

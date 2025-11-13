@@ -1,4 +1,5 @@
-services:  adguardhome:
+services:
+  adguardhome:
     image: adguard/adguardhome
     container_name: Adguard-Home
     ports:
@@ -10,6 +11,10 @@ services:  adguardhome:
       - 80:80/tcp
       - 443:443/tcp
     volumes:
-      - /opt/appdata/adguard/work:/opt/adguardhome/work
-      - /opt/appdata/adguard/conf:/opt/adguardhome/conf
+      - work:/opt/adguardhome/work
+      - conf:/opt/adguardhome/conf
     restart: unless-stopped
+
+volumes:
+  work:
+  conf: 

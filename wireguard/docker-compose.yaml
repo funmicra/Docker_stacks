@@ -18,7 +18,7 @@ services:
       - PERSISTENTKEEPALIVE_PEERS=${PERSISTENTKEEPALIVE_PEERS}  # Optional: Persistent keepalive peers
       - LOG_CONFS=${LOG_CONFS}  # Optional: Log configurations
     volumes:
-      - /opt/appdata/wireguard/config:/config  # Mount external volume for WireGuard configuration
+      - config:/config  # Mount external volume for WireGuard configuration
       - /lib/modules:/lib/modules  # Optional: Mount kernel modules
     ports:
       - ${HOST_PORT}:${CONTAINER_PORT}/udp  # Expose and forward port using UDP
@@ -30,3 +30,6 @@ networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  config:

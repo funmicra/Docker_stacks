@@ -8,10 +8,15 @@ services:
       TZ: 'Europe/Athens'
     # Volumes store your data between container upgrades
     volumes:
-      - '/opt/appdata/wallos/db:/var/www/html/db'
-      - '/opt/appdata/wallos/logos:/var/www/html/images/uploads/logos'
+      - db:/var/www/html/db
+      - logos:/var/www/html/images/uploads/logos
     restart: unless-stopped
+
 networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  db:
+  logos:

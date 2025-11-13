@@ -9,7 +9,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - /opt/appdata/libreoffice/config:/config
+      - config:/config
     ports:
       - 3010:3000
       - 3011:3001
@@ -19,3 +19,6 @@ networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  config:

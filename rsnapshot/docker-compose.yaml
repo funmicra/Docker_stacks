@@ -7,7 +7,15 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /opt/appdata/rsnapshot/config:/config
+      - config:/config
       - /home/funmicra/rsnapshot:/.snapshots #optional
       - /home/funmicra:/data #optional
     restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: Apps-Network
+
+volumes:
+  config:

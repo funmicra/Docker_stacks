@@ -12,7 +12,7 @@ services:
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
     volumes:
-      - /opt/appdata/wordpress/app:/var/www/html
+      - wordpress_app:/var/www/html
 
   db:
     image: mysql:8.0
@@ -24,11 +24,19 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - /opt/appdata/wordpress/db:/var/lib/mysql
+      - wordpress_db:/var/lib/mysql
 
   cloudflared:
     image: cloudflare/cloudflared:latest
     container_name: wordpress_domain
     restart: always
     command: tunnel --no-autoupdate run --token ${TOKEN}
-   
+
+volumes:
+  wordpress_app:
+    external: true
+    name: wordpress_app
+
+  wordpress_db:
+    external: true
+    name: wordpress_db

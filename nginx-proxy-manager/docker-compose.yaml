@@ -8,11 +8,14 @@ services:
       - '81:81'
       - '443:443'
     volumes:
-      - /opt/appdata/Nginx-Proxy/data:/data
-      - /opt/appdata/Nginx-Proxy/letsencrypt:/etc/letsencrypt
-    restart: unless-stopped
+      - data:/data
+      - crypt:/etc/letsencrypt
 
 networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  data:
+  crypt:

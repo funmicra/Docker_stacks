@@ -8,8 +8,8 @@ services:
       - TZ=${TZ}
       - WEBUI_PORT=8090
     volumes:
-      - /opt/appdata/qbittorrent/config:/config
-      - /opt/appdata/qbittorrent/downloads:/downloads
+      - config:/config
+      - downloads:/downloads
     ports:
       - 8090:8090
       - 6881:6881
@@ -20,3 +20,7 @@ networks:
   default:
     external: true
     name: Apps-Network
+
+volumes:
+  config:
+  downloads:
