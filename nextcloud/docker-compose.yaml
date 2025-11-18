@@ -50,7 +50,7 @@ services:
   cloudflared_nextcloud:
     container_name: Nextcloud-Domain
     image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token ${TOKEN}
+    command: tunnel --no-autoupdate run --token ${NEXTCLOUD_TOKEN}
     restart: unless-stopped
 
   cloudflared_collabora:
